@@ -2,13 +2,18 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < n)
+	while (n-- > 0)
 	{
-		*((unsigned char *)(s + i)) = '\0';
-		i++;
+		*((unsigned char *)s) = 0;
+		s++;
 	}
-	return ;
 }
+
+/*
+int main ()
+{
+	int a=264;
+
+	ft_bzero(&a,1);
+	printf("%d",a);
+} */

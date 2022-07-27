@@ -9,3 +9,13 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		ft_bzero(ret, nmemb * size);
 	return (ret);
 }
+/*
+int main()
+{
+	char *a;
+
+	a=ft_calloc(5,sizeof(char));
+
+	printf("%d",a[0]);	
+}
+*/

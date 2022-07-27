@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aeser <aeser@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/08 23:57:11 by aeser             #+#    #+#             */
+/*   Updated: 2022/02/03 12:00:19 by aeser            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -21,3 +33,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(ret, start, s1 - start + 1);
 	return (ret);
 }
+/*
+int main()
+{
+	char *a="*-*-*-*adsqweqwe*-rwq-*wqrwrqwrqe-qeqwrw*--*-******-----*-*-*";
+	char *b="*-";
+
+	printf("%s",ft_strtrim(a,b));
+}*/

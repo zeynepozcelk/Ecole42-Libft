@@ -1,58 +1,63 @@
 #include "libft.h"
+#include <limits.h>
 
-static size_t	digit_count(int n)
+static int	find_digit_num(int num)
 {
-	int	count;
+	int	dnum;
 
-	if (n == ((1 << ((32) - 1))))
+	dnum = 0;
+	if (num == INT_MIN)
 		return (11);
-	count = 1;
-	if (n < 0)
+	if (num == 0)
+		return (1);
+	else if (num < 0)
 	{
-		n *= -1;
-		count++;
+		num = num * -1;
+		dnum++;
 	}
-	while (n > 9)
+	while (num > 0)
 	{
-		n /= 10;
-		count++;
+		num /= 10;
+		dnum++;
 	}
-	return (count);
-}
-
-static void	put_number(int n, char *str, int *i)
-{
-	if (n > 9)
-	{
-		put_number(n / 10, str, i);
-		put_number(n % 10, str, i);
-	}
-	else
-		str[(*i)++] = n + '0';
+	return (dnum);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		i;
-	long	nbr;
+	int		digit;
+	char	*arry;
 
-	nbr = n;
-	str = malloc(sizeof(char) * (digit_count(nbr) + 1));
-	if (!str)
+	digit = find_digit_num(n);
+	arry = (char *)malloc(sizeof(char) * (digit + 1));
+	if (!arry)
 		return (NULL);
-	if (n == ((1 << ((32) - 1))))
+	arry[digit] = '\0';
+	digit--;
+	if (n == INT_MIN)
+		ft_strlcpy(arry, "-2147483648", 12);
+	else if (n == 0)
+		ft_strlcpy(arry, "0", 2);
+	if (n < 0 && n != INT_MIN)
 	{
-		ft_strlcpy(str, "-2147483648", 12);
-		return (str);
+		n = n * -1;
+		arry[0] = '-';
 	}
-	i = 0;
-	if (nbr < 0)
+	while (digit >= 0 && n > 0 && n != INT_MIN)
 	{
-		str[i++] = '-';
-		nbr *= -1;
+		arry[digit] = n % 10 + '0';
+		digit--;
+		n /= 10;
 	}
-	put_number(nbr, str, &i);
-	str[i] = '\0';
-	return (str);
+	return (arry);
 }
+/*
+int main()
+{
+	int a=    -123141;
+	char *ab=ft_itoa(a);
+
+	printf("%s",ab);
+
+}*/
+

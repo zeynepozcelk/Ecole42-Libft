@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aeser <aeser@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/08 16:54:10 by aeser             #+#    #+#             */
+/*   Updated: 2022/02/03 12:15:37 by aeser            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -26,3 +38,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	return (ret);
 }
+
+/*
+int main()
+{
+	char *arr="Furkan";
+	char *g=ft_substr(arr,2,23807);
+	printf("%s",g);
+}
+*/

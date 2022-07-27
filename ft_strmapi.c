@@ -1,5 +1,23 @@
-#include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aeser <aeser@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/30 15:43:06 by aeser             #+#    #+#             */
+/*   Updated: 2022/02/03 12:07:09 by aeser            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "libft.h"
+/*
+char f(unsigned int a, char s)
+{
+	s=s-32;
+	return s;
+}
+*/
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	int		i;
@@ -19,3 +37,12 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	ret[i] = '\0';
 	return (ret);
 }
+
+/*
+int main()
+{
+	char *arr=ft_strdup("kekekess");
+
+	printf("%s",ft_strmapi(arr,&f));
+	printf("%s", arr);
+}*/

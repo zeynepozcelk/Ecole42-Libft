@@ -33,3 +33,10 @@ int	ft_atoi(const char *str)
 	num = max_min_cntrl(num, sign);
 	return (num);
 }
+
+/*int main()
+{
+	char *arr="   \n\t    -123 \t  55";
+	int a=ft_atoi(arr);
+	printf("%d",a);	
+}*/

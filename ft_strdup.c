@@ -1,3 +1,4 @@
+
 #include "libft.h"
 
 static char	*ft_strcpy(char *dst, const char *src)
@@ -22,3 +23,10 @@ char	*ft_strdup(const char *s)
 		ft_strcpy(ret, s);
 	return (ret);
 }
+/*
+int main()
+{
+	char *arr=ft_strdup("furkan");
+	arr[2]='g';
+	printf("%s",arr);
+}*/

@@ -1,30 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aeser <aeser@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/28 14:05:54 by aeser             #+#    #+#             */
+/*   Updated: 2022/02/03 11:54:29 by aeser            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-
-static char	*ft_strcpy(char *dst, const char *src)
-{
-	size_t	i;
-
-	i = 0;
-	if (!dst && !src)
-		return (NULL);
-	while (*src)
-		dst[i++] = *((char *)src++);
-	dst[i] = '\0';
-	return (dst);
-}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*ret;
-	int		ret_len;
+	int		s1_len;
+	int		s2_len;
+	char	*arry;
 
 	if (!s1 || !s2)
 		return (NULL);
-	ret_len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	ret = malloc(sizeof(char) * (ret_len));
-	if (!ret)
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	arry = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
+	if (!arry)
 		return (NULL);
-	ft_strcpy(ret, s1);
-	ft_strlcat(ret, (char *)s2, ret_len);
-	return (ret);
+	ft_strlcpy((arry), (char *)s1, s1_len + s2_len + 1);
+	ft_strlcpy((arry + s1_len), (char *)s2, s1_len + s2_len + 1);
+	return (arry);
 }
+
+/*
+int main()
+{
+	char *arr="furkan";
+	char *arr2="furkan yardımcı";
+
+	printf("%s",ft_strjoin(arr,arr2));
+
+}*/

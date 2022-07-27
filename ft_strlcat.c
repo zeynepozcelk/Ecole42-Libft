@@ -1,20 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aeser <aeser@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/08 16:54:49 by aeser             #+#    #+#             */
+/*   Updated: 2022/02/01 14:38:15 by aeser            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, char *src, size_t size)
+size_t	ft_strlcat(char *dst, char *src, size_t dstsize)
 {
-	unsigned int	c;
-	unsigned int	d;
+	size_t	dst_size;
+	size_t	src_size;
+	size_t	i;
 
-	if (size <= ft_strlen(dest))
-		return (size + ft_strlen(src));
-	c = ft_strlen(dest);
-	d = 0;
-	while (src[d] != '\0' && c + 1 < size)
+	dst_size = ft_strlen(dst);
+	src_size = ft_strlen(src);
+	i = dst_size;
+	if (dstsize <= ft_strlen(dst))
+		return (dstsize + src_size);
+	if (dstsize)
 	{
-		dest[c] = src[d];
-		c++;
-		d++;
+		while (*src && i < (dstsize - 1))
+		{
+			dst[i] = *src;
+			i++;
+			src++;
+		}
+		dst[i] = '\0';
 	}
-	dest[c] = '\0';
-	return (ft_strlen(dest) + ft_strlen(&src[d]));
+	return (dst_size + src_size);
 }
+/*
+int main()
+{
+	char arr[15]="Furkan";
+	char *arr2="yardimci";
+
+	
+	printf("%ld",ft_strlcat(arr,arr2,15));
+}
+*/

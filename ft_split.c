@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aeser <aeser@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/08 23:57:42 by aeser             #+#    #+#             */
+/*   Updated: 2022/02/03 12:03:30 by aeser            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static void	ft_allocate(char **tab, char const *s, char sep)
@@ -55,3 +67,16 @@ char	**ft_split(char const *s, char c)
 	ft_allocate(new, s, c);
 	return (new);
 }
+
+/*
+int main()
+{
+	char *arr="--zewq--rr--eqwewqeqwe-wee-----rr----r";
+	char **ft=ft_split(arr,'-');
+	int i= 0;
+	while(ft[i])
+	{
+		printf("%s\n",ft[i]);
+		i++;
+	}
+}  */
